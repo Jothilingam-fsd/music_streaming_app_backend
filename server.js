@@ -19,9 +19,14 @@ const PORT = process.env.PORT || 7000;
 // Initialize Express app
 const app = express();
 
+// Enable cors
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  credentials: true, // if you use cookies or tokens
+}))
+
 // Middleware
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
