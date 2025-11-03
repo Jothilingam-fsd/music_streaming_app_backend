@@ -41,6 +41,12 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.static(path.join(path.resolve(), 'public')));
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('🎵 Music Streaming Backend is running successfully!');
+});
+
+
+// Routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/song", userJwtMiddleware, songRoutes);
 app.use("/api/v1/playlist", userJwtMiddleware, playlistRoutes);
